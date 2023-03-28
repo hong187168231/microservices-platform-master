@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.central.yyg.mapper.ProductImageMapper">
+    <select id="findList" resultType="com.central.yyg.model.entity.ProductImage">
+        SELECT * FROM productimage
+        <where>
+            <if test="p.productimage_product_id != null and p.productImage_product_id != '' ">
+                productImage_product_id = #{p.productImage_product_id}
+            </if>
+            <if test="p.productImage_type != null and p.productImage_type != '' ">
+                and productImage_type = #{p.productImage_type}
+            </if>
+        </where>
+    </select>
+    <select id="getList" resultType="com.central.yyg.model.entity.ProductImage">
+        SELECT * FROM productimage
+        <where>
+            <if test="p.productimage_product_id != null and p.productImage_product_id != '' ">
+                productImage_product_id = #{p.productImage_product_id}
+            </if>
+            <if test="p.productImage_type != null and p.productImage_type != '' ">
+                and productImage_type = #{p.productImage_type}
+            </if>
+        </where>
+    </select>
+</mapper>

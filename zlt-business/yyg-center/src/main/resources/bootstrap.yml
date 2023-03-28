@@ -1,0 +1,11 @@
+server:
+  port: 7004
+
+spring:
+  application:
+    name: yyg-center
+#  cloud:
+#    nacos:
+#      discovery:
+#        metadata:
+#          version: zlt

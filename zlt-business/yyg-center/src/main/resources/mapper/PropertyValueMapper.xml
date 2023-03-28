@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.central.yyg.mapper.PropertyValueMapper">
+    <select id="getList" resultType="com.central.yyg.model.vo.PropertyValueVo">
+        select a.*,b.* from propertyvalue a
+        LEFT JOIN
+        property b
+        ON a.property_id=s.propertyvalue_property_id
+        <where>
+            1=1
+            <if test="p.propertyvalue_product_id != null and  propertyvalue_product_id != '' and  p.propertyvalue_product_id != 0">
+                and a.propertyvalue_product_id = #{p.propertyvalue_product_id}
+            </if>
+            <if test="p.property_category_id != null and  property_category_id != '' and  p.property_category_id != 0">
+                and b.property_category_id = #{p.property_category_id}
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.central.yyg.mapper.CategoryMapper">
+    <select id="findList" resultType="com.central.yyg.model.entity.Category">
+        SELECT * FROM category
+        <where>
+            1=1
+            <if test="p.category_name_cn != null and  p.category_name_cn != ''">
+               and category_name_cn LIKE concat('%',#{p.category_name_cn},'%')
+            </if>
+            <if test="p.category_name_en != null and  p.category_name_en != ''">
+                and category_name_en LIKE concat('%',#{p.category_name_en},'%')
+            </if>
+            <if test="p.category_name_kh != null and  p.category_name_kh != ''">
+                and category_name_kh LIKE concat('%',#{p.category_name_kh},'%')
+            </if>
+            <if test="p.category_name_vn != null and  p.category_name_vn != ''">
+                and category_name_vn LIKE concat('%',#{p.category_name_vn},'%')
+            </if>
+        </where>
+    </select>
+    <select id="getList" resultType="com.central.yyg.model.entity.Category">
+        SELECT * FROM category
+        <where>
+            1=1
+            <if test="p.category_name_cn != null and  p.category_name_cn != ''">
+                and category_name_cn LIKE concat('%',#{p.category_name_cn},'%')
+            </if>
+            <if test="p.category_name_en != null and  p.category_name_en != ''">
+                and category_name_en LIKE concat('%',#{p.category_name_en},'%')
+            </if>
+            <if test="p.category_name_kh != null and  p.category_name_kh != ''">
+                and category_name_kh LIKE concat('%',#{p.category_name_kh},'%')
+            </if>
+            <if test="p.category_name_vn != null and  p.category_name_vn != ''">
+                and category_name_vn LIKE concat('%',#{p.category_name_vn},'%')
+            </if>
+        </where>
+    </select>
+</mapper>
